@@ -1,35 +1,66 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 int main()
 {
-    int s1, lb1, o1, s2, lb2, o2;
-    //Integers
+    int a, b, c;
+    float x1, x2;
 
-    printf("Enter the weight of the first object (st,lb,oz)\n");
-    scanf("%d,%d,%d", &s1, &lb1, &o1);
-    //First object weight
+    printf("Enter your coefficients: ");
+    scanf("%d %d %d", &a, &b, &c);
+    printf("Roots of the equation: ");
 
-    printf("\nEnter the weight of the second object (st,lb,oz)\n");
-    scanf("%d,%d,%d", &s2, &lb2, &o2);
-    //Second object weight
+    switch (a)
+        {
+        case 1: printf("x^2"); break;
+        case 0: break;
+        case -1: printf("-x^2"); break;
+        default: printf("%dx^2", a);
+    }
 
-    int sum_s = s1+s2;
-    int sum_lb = lb1+lb2;
-    int sum_o = o1+o2;
-    int avg_s = (s1+s2)/2;
-    int avg_lb = (lb1+lb2)/2;
-    int avg_o = (o1+o2)/2;
-    //Sum and average integers
+    if (a != 0 && b > 0) printf("+");
 
-    printf("\n%10s%6s%6s%6s\n","","st","lb","oz");
-    printf("-----------------------------------\n");
-    printf("%10s%6d%6d%6d\n","Weight 1",s1,lb1,o1);
-    printf("%10s%6d%6d%6d\n","Weight 2",s2,lb2,o2);
-    printf("-----------------------------------\n");
-    printf("%10s%6.1f%6.1f%6.1f\n","Sum",(float)sum_s,(float)sum_lb,(float)sum_o);
-    printf("%10s%6.1f%6.1f%6.1f\n","Average",(float)avg_s,(float)avg_lb,(float)avg_o);
-    //Display
+    switch (b)
+        {
+        case 1: printf("x"); break;
+        case 0: break;
+        case -1: printf("-x"); break;
+        default: printf("%dx", b);
+    }
+
+    if (b!=0 && c>0) printf("+");
+
+    if ((a!=0 || b!=0) && c !=0) printf("%d", c);
+
+    printf("=0\n");
+
+    float sq = b*b-4*a*c;
+
+    if (a == 0)
+    {
+        if (b != 0)
+            printf("The answer is %.2f\n", -(float)c / b);
+        else printf("No solutions\n");
+    }
+    else
+        {
+        if (sq == 0)
+        {
+            x1 = -b / (2.0 * a);
+            printf("x=%.2f\n", x1);
+    }
+        else if (sq < 0)
+            {
+            printf("No solutions\n");
+        }
+        else
+            {
+            x1 = (-b + sqrt(sq)) / (2.0 * a);
+            x2 = (-b - sqrt(sq)) / (2.0 * a);
+            printf("x1=%.2f, x2=%.2f\n", x1, x2);
+        }
+    }
 
     return 0;
 }
