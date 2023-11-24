@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    int i, j, n, count = 0;
+
+    printf("What is your number?");
+    scanf("%d", &n);
+
+    while (n > 0)
+    {
+        if (n % 10 == 3)
+            count++;
+        n = n / 10;
+    }
+
+    printf("The number of '3' is: %d\n", count);
+
+    return 0;
+}
