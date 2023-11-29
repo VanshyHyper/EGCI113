@@ -25,7 +25,7 @@ void POSITION(),DISPLAY(),TURN(),ASK(),MOVE(),PAWN(),CASTLE(),BISHOP(),QUEEN(),K
 
 FILE *fp;
 
-void main(){            // NOT FINISH
+void main(){            // FINISH
 
     if ((fp=fopen("chess_history_record.dat","a"))==NULL){
          //w=rewrite whole file, a=add in the file, r=read the file, w+=read and write
@@ -203,7 +203,7 @@ void ASK(){             // FINISH
     }
 }
 
-void MOVE(){            // NOT FINISH
+void MOVE(){            // FINISH
     switch(location[i1][i2]){
         case 'P': tmpselect='P'; PAWN(); break;
         case 'C': tmpselect='C'; CASTLE(); break;
@@ -215,7 +215,7 @@ void MOVE(){            // NOT FINISH
     }
 }
 
-void PAWN(){            // NOT FINISH
+void PAWN(){            // FINISH
     if(turn%2==1){
         if(above[i1+1][i2+1]=='.' && above[i1+1][i2-1]=='.' && above[i1+1][i2]!='.' || below[i1+1][i2]!='.'){
             STUCK();
@@ -2290,7 +2290,7 @@ void HORSE(){
     }
 }
 
-void TEAMPOSITION(){    // NOT FINISH                                          // Convert Team[][] into Location[][]
+void TEAMPOSITION(){    // FINISH                                          // Convert Team[][] into Location[][]
     stuck=0; stucki=0;
     if(turn%2==1){  //below blue
         below[i1][i2]=tmpselect;
